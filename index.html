@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<section id="top" class="wrap hero" aria-labelledby="hero-title">
+  <div>
+    <p class="eyebrow">Personal blog · {{ 'now' | date: '%Y' }}</p>
+    <h1 id="hero-title">你好，我是<br>{{ site.title | split: '·' | first }}。</h1>
+    <p class="hero-copy">这里记录我正在学习的技术、动手做过的小项目，以及不想忘记的想法。用最朴素的方式写作：Markdown 写文章，Jekyll 生成网页，GitHub Pages 发布上线。</p>
+    <div class="hero-actions">
+      <a class="button primary" href="#writing">读读我的文章</a>
+      <a class="button secondary" href="mailto:yangysngyunan@gmail.com">给我发邮件</a>
+    </div>
+  </div>
+  <div class="hero-card" aria-label="个人头像占位图"><div class="avatar">小强</div></div>
+</section>
+
+<section id="writing" class="wrap section" aria-labelledby="writing-title">
+  <div class="section-heading"><div><p class="eyebrow">Latest notes</p><h2 id="writing-title">最近写了什么</h2><div class="rule"></div></div><p>以后只需要在 `_posts` 文件夹中新增 Markdown 文件。</p></div>
+  <div class="article-grid">
+    {% for post in site.posts limit: 6 %}
+    <article class="card">
+      <div class="card-meta">{{ post.date | date: '%Y.%m.%d' }}{% if post.tags %} · {{ post.tags | first }}{% endif %}</div>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+      <a class="card-link" href="{{ post.url | relative_url }}">阅读文章 →</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="projects" class="wrap section" aria-labelledby="projects-title">
+  <div class="section-heading"><div><p class="eyebrow">Selected work</p><h2 id="projects-title">做过的小项目</h2><div class="rule"></div></div><p>项目内容直接写在这个页面里，改文字和链接就可以。</p></div>
+  <div class="project-grid">
+    <article class="card"><div class="card-meta">PROJECT 01</div><h3>个人博客站点</h3><p>用 Markdown 写文章、Jekyll 生成静态页面，通过 GitHub Actions 自动发布到 GitHub Pages。</p><a class="card-link" href="https://github.com/Yangyunan8866">查看项目 →</a></article>
+    <article class="card"><div class="card-meta">PROJECT 02</div><h3>学习笔记整理</h3><p>把课程、教程和踩过的坑整理成可检索的笔记，方便以后回头查。</p><a class="card-link" href="https://github.com/Yangyunan8866">查看项目 →</a></article>
+    <article class="card"><div class="card-meta">PROJECT 03</div><h3>正在进行中</h3><p>一个还没完成、但值得继续记录的想法。等做出样子再补上链接。</p><a class="card-link" href="https://github.com/Yangyunan8866">了解更多 →</a></article>
+  </div>
+</section>
